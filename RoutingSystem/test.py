@@ -46,16 +46,15 @@ def geocalc(lat0, lon0, lat1, lon1):
 
 
 #Function to find the nearest city from the given city
-def find_nearest(index):
+def find_nearest(lat,long):
     MinValue=999999999
     MinValuePlace=""
     for i in range(0,len(CityCenterListData)):
-        if i!=index:
-            TempValue=geocalc(LatitudeList[index], LongitudeList[index], LatitudeList[i], LongitudeList[i])
-            if TempValue<MinValue:
-                MinValue=TempValue
-                MinValuePlace=CityCenterListData[i]
-            # print(CityCenterListData[i] + " To " + CityCenterListData[index] + " is " + str(TempValue) + "\n")
+        TempValue=geocalc(lat, long, LatitudeList[i], LongitudeList[i])
+        if TempValue<MinValue:
+            MinValue=TempValue
+            MinValuePlace=CityCenterListData[i]
+        # print(CityCenterListData[i] + " is " + str(TempValue) + "\n")
 
     return MinValuePlace
 
@@ -63,18 +62,19 @@ def find_nearest(index):
 # Input the Place for which we want to calculate the nearest station
 place=input("Input the Place for which we want to calculate the nearest station\n").lower()
 
-
-#Finding if the input city is valid( if present in the database)
-index=-1
-for i in range(len(CityCenterListData)):
-    result=re.search(place,CityCenterListData[i].lower())
-    if result:
-        index=i
-        break
-
-if index==-1:
-    print("Place not in Database\n")
-else:
-    print(find_nearest(index))
+lat=0
+long=0
+loc = geolocator.geocode(place)
+lat=loc.latitude
+long=loc.longitude
+MinValue = 999999999
+MinValuePlace = ""
+for i1 in range(0, len(CityCenterListData)):
+    TempValue = geocalc(lat, long, LatitudeList[i1], LongitudeList[i1])
+    if TempValue < MinValue:
+        MinValue = TempValue
+        MinValuePlace = CityCenterListData[i1]
+    # print(CityCenterListData[i] + " is " + str(TempValue) + "\n")
+print("Nearest to " + place +" is " + MinValuePlace)
 
 
