@@ -1,8 +1,8 @@
 
-
-
 import numpy as np
 from geopy.geocoders import Nominatim
+import  regex as re
+
 geolocator = Nominatim(user_agent="my_user_agent")
 CityCenterListData=['Electronic City,Bangalore',
                     'BTM Layout,Bangalore',
@@ -12,6 +12,8 @@ CityCenterListData=['Electronic City,Bangalore',
                     'Kumaraswamy Layout, Bengaluru, Karnataka 560078',
                     'Bellandur, Bengaluru, Karnataka'
                     ]
+
+
 LatitudeList=[]
 LongitudeList=[]
 i=0
@@ -19,8 +21,9 @@ for address in CityCenterListData:
         loc = geolocator.geocode(address)
         LatitudeList.append(loc.latitude)
         LongitudeList.append(loc.longitude)
-        print(address+" "+"latitude is :-" ,LatitudeList[i],"\nlongtitude is:-" ,LongitudeList[i])
-        i=i+1
+        # print(address+" "+"latitude is :-" ,LatitudeList[i],"\nlongtitude is:-" ,LongitudeList[i])
+        # i=i+1
+
 
 
 # from [https://ipython-books.github.io/147-creating-a-route-planner-for-a-road-network/]
@@ -46,4 +49,34 @@ def geocalc(lat0, lon0, lat1, lon1):
 
 
 
-geocalc(LatitudeList[0],LongitudeList[0],LatitudeList[1],LongitudeList[1])
+def find_nearest(index):
+    MinValue=999999999
+    MinValuePlace=""
+    for i in range(0,len(CityCenterListData)):
+        if i!=index:
+            TempValue=geocalc(LatitudeList[index], LongitudeList[index], LatitudeList[i], LongitudeList[i])
+            if TempValue<MinValue:
+                MinValue=TempValue
+                MinValuePlace=CityCenterListData[i]
+            # print(CityCenterListData[i] + " To " + CityCenterListData[index] + " is " + str(TempValue) + "\n")
+
+    return MinValuePlace
+
+
+# Input the Place for which we want to calculate the nearest station
+place=input("Input the Place for which we want to calculate the nearest station\n").lower()
+
+index=-1
+for i in range(len(CityCenterListData)):
+    result=re.search(place,CityCenterListData[i].lower())
+    if result:
+        index=i
+        break
+
+if index==-1:
+    print("Place not in Database\n")
+else:
+    print("Place in Database\n")
+    print(find_nearest(index))
+
+
