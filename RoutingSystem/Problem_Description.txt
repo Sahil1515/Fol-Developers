@@ -1,0 +1,13 @@
+
+
+
+Load 7 locations in the python code (as centers), which are given in this link. Then, ask input for one place, we should get the nearest center or location from the location we have given in input.
+
+
+1. Getting lat longs of a given place using python
+2. Getting distance bw given 2 lat longs
+3. given 7 locations (lat-longs), input a place/loc and check to which location out of the 7 locs, it is nearest.
+4. for any given loc name in bangalore you should find which is the nearest point in the above map.
+
+
+https://www.google.com/maps/d/edit?mid=1FDbQ0Q4gGgarpVQY-rmH96fQsGGKpX5Z&usp=sharing
