@@ -3,6 +3,7 @@ import numpy as np
 from geopy.geocoders import Nominatim
 import  regex as re
 
+#Finding the latitude and longitude and storing them in separate lists
 geolocator = Nominatim(user_agent="my_user_agent")
 CityCenterListData=['Electronic City,Bangalore',
                     'BTM Layout,Bangalore',
@@ -12,8 +13,6 @@ CityCenterListData=['Electronic City,Bangalore',
                     'Kumaraswamy Layout, Bengaluru, Karnataka 560078',
                     'Bellandur, Bengaluru, Karnataka'
                     ]
-
-
 LatitudeList=[]
 LongitudeList=[]
 i=0
@@ -21,14 +20,12 @@ for address in CityCenterListData:
         loc = geolocator.geocode(address)
         LatitudeList.append(loc.latitude)
         LongitudeList.append(loc.longitude)
-        # print(address+" "+"latitude is :-" ,LatitudeList[i],"\nlongtitude is:-" ,LongitudeList[i])
-        # i=i+1
-
-
 
 # from [https://ipython-books.github.io/147-creating-a-route-planner-for-a-road-network/]
 
 # from [https://stackoverflow.com/a/8859667/1595060](https://stackoverflow.com/a/8859667/1595060)
+
+#Finding the distance between two places using there latitudes and ongitudes
 EARTH_R = 6372.8
 
 def geocalc(lat0, lon0, lat1, lon1):
@@ -48,7 +45,7 @@ def geocalc(lat0, lon0, lat1, lon1):
     return EARTH_R * c
 
 
-
+#Function to find the nearest city from the given city
 def find_nearest(index):
     MinValue=999999999
     MinValuePlace=""
@@ -66,6 +63,8 @@ def find_nearest(index):
 # Input the Place for which we want to calculate the nearest station
 place=input("Input the Place for which we want to calculate the nearest station\n").lower()
 
+
+#Finding if the input city is valid( if present in the database)
 index=-1
 for i in range(len(CityCenterListData)):
     result=re.search(place,CityCenterListData[i].lower())
@@ -76,7 +75,6 @@ for i in range(len(CityCenterListData)):
 if index==-1:
     print("Place not in Database\n")
 else:
-    print("Place in Database\n")
     print(find_nearest(index))
 
 
