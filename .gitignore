@@ -2,3 +2,4 @@
 /RoutingSystem/venv
 /RoutingSystem/.idea
 **/venv
+**/.idea
