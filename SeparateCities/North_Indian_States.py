@@ -135,6 +135,9 @@ cities = ["Sitamarhi", "Mysuru", "Dewas", "Noida", "Tikamgarh", "Lateri", "Gwali
           "Dehli", "Udupi", "Kerala", "Manipal", "Mangalore", "Noida", "Manipal", "Dehli", "Manipal", "Manipal",
           "Udupi", "Manipal", "Siruguppa", "Manipal", "Mangalore", "Noida", "Dehli", "Dehli", "Coimbatore", "Udupi"
 ]
+# Remove Duplicates
+cities = list(dict.fromkeys(cities))
+print(cities)
 
 geolocator = Nominatim(user_agent="geoapiExercises")
 

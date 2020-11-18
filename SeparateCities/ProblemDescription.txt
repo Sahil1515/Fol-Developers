@@ -1,2 +1,5 @@
 
-We are given a big data of Cities. As it is tidious task to separate all cities on the basis of States, we need Python script to separate the cities on the basis of States.
+We are given a big data of Cities.
+As it is tidious task to separate all 
+cities on the basis of States, we need Python 
+script to separate the cities on the basis of States.
