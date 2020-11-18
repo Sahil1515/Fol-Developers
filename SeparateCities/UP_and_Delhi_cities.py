@@ -139,8 +139,8 @@ cities = ["Sitamarhi", "Mysuru", "Dewas", "Noida", "Tikamgarh", "Lateri", "Gwali
 
 # Remove Duplicates
 cities = list(dict.fromkeys(cities))
-print(cities)
 
+# print(cities)
 # print(len(cities))
 
 geolocator = Nominatim(user_agent="geoapiExercises")
