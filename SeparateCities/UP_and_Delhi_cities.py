@@ -167,5 +167,5 @@ def FindState(states):
 #Utter Pradesh and Delhi
 UP_and_Delhi=["Uttar Pradesh", "Delhi"]
 FindState(UP_and_Delhi)
-print(Delhi)
-print(UttarPradesh)
+result=Delhi+UttarPradesh
+print(result)

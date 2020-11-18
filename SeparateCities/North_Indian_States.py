@@ -183,4 +183,5 @@ Delhi=[]
 # North Indian States and Cites
 NortStates=["Jammu and Kashmir", "Himachal Pradesh", "Punjab","Rajasthan","Chandighar","Uttrakhand","Uttar Pradesh","Delhi"]
 FindState(NortStates)
-print(JammuAndKashmir,HimachalPradesh,Punjab,Rajasthan,Chandighar,UttarPradesh,Uttrakhand,Delhi)
+result=JammuAndKashmir+HimachalPradesh+Punjab+Rajasthan+Chandighar+UttarPradesh+Uttrakhand+Delhi
+print(result)
