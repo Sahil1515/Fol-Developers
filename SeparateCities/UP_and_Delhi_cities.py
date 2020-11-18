@@ -1,6 +1,5 @@
 
 from geopy.geocoders import Nominatim
-import regex as re
 
 cities = ["Sitamarhi", "Mysuru", "Dewas", "Noida", "Tikamgarh", "Lateri", "Gwalior", "Tinwari", "Delhi", "Jodhpur",
           "Jaipur", "Hyderabad", "Jodhpur", "Tirunelveli", "Kunigal", "Nandyal", "Ajmer", "Delhi", "Donimalia",
