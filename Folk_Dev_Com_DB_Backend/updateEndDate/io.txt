@@ -1,0 +1,33 @@
+
+
+#Input:
+New start date
+
+#Output:
+Updated start date
+
+#Input1:
+
+rec={
+        "recdata" : {
+            "description": "The task is to find out the cities belonging to UP and Delhi.",
+            "startDate": "10-11-2020",
+            "endDate": "15-11-2020"
+        },
+        "newDescription":"Take all the North Indian states",
+        "newStartDate":"12-11-2020",
+        "newEndDate":"17-11-2020"
+    }
+
+#Output1:
+
+rec={
+        "recdata" : {
+            "description": "Take all the North Indian states",
+            "startDate": "12-11-2020",
+            "endDate": "15-11-2020"
+        },
+        "newDescription":"The task is to find out the cities belonging to UP and Delhi.",
+        "newStartDate":"12-11-2020",
+        "newEndDate":"17-11-2020"
+    }
